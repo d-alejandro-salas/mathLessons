@@ -4,18 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Clases de Matemática en Palermo, CABA | Profesor particular</title>
-<meta name="description" content="Profesor particular de Matemática en Palermo (Buenos Aires): Secundaria, CBC y universidad. Clases presenciales u online. Consultá precios y pedí tu primera clase por WhatsApp.">
+<meta name="description" content="Profesor particular de Matemática en Palermo, CABA: Secundaria, CBC y universidad. Clases presenciales u online. Precios claros y primera consulta por WhatsApp.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="geo.region" content="AR-C"><meta name="geo.placename" content="Palermo, Buenos Aires">
 <meta name="theme-color" content="#4f46e5">
-<link rel="canonical" href="https://www.TUDOMINIO.com.ar/">
+<link rel="canonical" href="https://d-alejandro-salas.github.io/mathLessons/">
 <meta property="og:type" content="website"><meta property="og:locale" content="es_AR">
 <meta property="og:title" content="Clases de Matemática en Palermo, CABA">
 <meta property="og:description" content="Profesor particular en Palermo: todos los niveles, presencial u online. Precios claros y primera consulta por WhatsApp.">
-<meta property="og:url" content="https://www.TUDOMINIO.com.ar/">
-<meta property="og:image" content="https://www.TUDOMINIO.com.ar/og-image.jpg">
+<meta property="og:url" content="https://d-alejandro-salas.github.io/mathLessons/">
+<meta property="og:image" content="https://d-alejandro-salas.github.io/mathLessons/og-image.jpg">
+<meta property="og:site_name" content="Matemática Palermo">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Clases particulares de Matemática en Palermo, Buenos Aires">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234f46e5'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='serif'%3E%CF%80%3C/text%3E%3C/svg%3E">
+<meta name="twitter:title" content="Clases de Matemática en Palermo, CABA">
+<meta name="twitter:description" content="Profesor particular de Matemática en Palermo, CABA: Secundaria, CBC y universidad. Clases presenciales u online. Precios claros y primera consulta por">
+<meta name="twitter:image" content="https://d-alejandro-salas.github.io/mathLessons/og-image.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="favicon.png">
 <style>
 :root{--ink:#1e1b4b;--txt:#334155;--brand:#4f46e5;--brand2:#7c3aed;--acc:#f59e0b;--bg:#f8fafc;--card:#fff;--line:#e2e8f0;--r:18px;--sh:0 10px 30px rgba(30,27,75,.08)}
 *{box-sizing:border-box;margin:0}
@@ -174,7 +182,7 @@ footer{padding:2rem 0 5.5rem;text-align:center;font-size:.88rem;color:#64748b}
 </div></div></section>
 </main>
 
-<footer><div class="wrap"><p>© <span id="y"></span> Clases particulares de Matemática en Palermo, Ciudad Autónoma de Buenos Aires.</p></div></footer>
+<footer><div class="wrap"><p><a href="material/funciones-exponenciales-logaritmicas.html">Material gratuito: funciones exponenciales y logarítmicas</a></p><p>© <span id="y"></span> Clases particulares de Matemática en Palermo, Ciudad Autónoma de Buenos Aires.</p></div></footer>
 
 <a class="fab" href="https://api.whatsapp.com/send/?phone=5491166680697" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.300-1.900 1.300-.5.100-1.100.100-1.800-.100-.4-.100-1-.300-1.700-.600-3-1.300-4.900-4.300-5-4.500-.2-.2-1.200-1.600-1.200-3s.7-2.100 1-2.400c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.500-.4.400c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.6-.1l.8-1c.2-.2.400-.2.600-.1l2 1c.3.100.5.200.5.300.100.100.100.700-.100 1.400Z"/></svg></a>
 
@@ -246,7 +254,9 @@ if (MATERIAL.length) {
 // Datos estructurados (se arman con los mismos precios)
 const ld = {
   '@context': 'https://schema.org', '@type': ['LocalBusiness', 'EducationalOrganization'],
-  name: 'Clases particulares de Matemática en Palermo', url: location.origin + '/',
+  name: 'Clases particulares de Matemática en Palermo', url: document.querySelector('link[rel=canonical]').href,
+  image: document.querySelector('meta[property="og:image"]').content,
+  description: document.querySelector('meta[name=description]').content,
   telephone: '+5491166680697', priceRange: `${fmt(Math.min(...filas.flatMap((f) => f.precios)))} - ${fmt(Math.max(...filas.flatMap((f) => f.precios)))}`,
   address: { '@type': 'PostalAddress', addressLocality: 'Palermo, Ciudad Autónoma de Buenos Aires', addressCountry: 'AR' },
   areaServed: ['Palermo', 'Palermo Soho', 'Palermo Hollywood', 'Belgrano', 'Recoleta', 'Villa Crespo'],

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.TUDOMINIO.com.ar/sitemap.xml
+Sitemap: https://d-alejandro-salas.github.io/mathLessons/sitemap.xml
