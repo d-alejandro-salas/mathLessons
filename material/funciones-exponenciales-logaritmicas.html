@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones exponenciales y logarítmicas: 26 ejercicios resueltos | Matemática en Palermo</title>
+    <meta name="description" content="Ejercicios resueltos paso a paso de funciones exponenciales, logarítmicas e inversas: dominio, imagen, asíntotas, signos, monotonía y gráficos. Material gratuito para CBC y universidad.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="canonical" href="https://www.TUDOMINIO.com.ar/material/funciones-exponenciales-logaritmicas.html">
+    <meta property="og:type" content="article"><meta property="og:locale" content="es_AR">
+    <meta property="og:title" content="Funciones exponenciales y logarítmicas: 26 ejercicios resueltos"><meta property="og:description" content="Ejercicios resueltos paso a paso de funciones exponenciales, logarítmicas e inversas: dominio, imagen, asíntotas, signos, monotonía y gráficos. Material gratuito para CBC y universidad.">
+    <meta property="og:url" content="https://www.TUDOMINIO.com.ar/material/funciones-exponenciales-logaritmicas.html"><meta property="og:image" content="https://www.TUDOMINIO.com.ar/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Funciones exponenciales y logarítmicas: 26 ejercicios resueltos","description":"Ejercicios resueltos paso a paso de funciones exponenciales, logarítmicas e inversas: dominio, imagen, asíntotas, signos, monotonía y gráficos. Material gratuito para CBC y universidad.","inLanguage":"es-AR","educationalLevel":"CBC y universidad","teaches":"Funciones exponenciales, logarítmicas e inversas","isAccessibleForFree":true,"url":"https://www.TUDOMINIO.com.ar/material/funciones-exponenciales-logaritmicas.html"}</script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- MathJax CDN para fórmulas matemáticas en LaTeX -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="mathjax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        academic: { 50: '#f8fafc', 100: '#f1f5f9', 800: '#1e293b', 900: '#0f172a' },
+                        brand: { 500: '#2563eb', 600: '#1d4ed8', 700: '#1e40af' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilo para tooltips con hover suave */
+        .tooltip-box {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+        }
+        .has-tooltip:hover .tooltip-box {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Estilos visuales de ejercicio completado */
+        .exercise-card.is-done {
+            border-color: #10b981 !important;
+            background-color: #f0fdf4 !important;
+        }
+        .exercise-card.is-done .check-btn {
+            background-color: #10b981 !important;
+            color: #ffffff !important;
+            border-color: #059669 !important;
+        }
+    </style>
+</head>
+<body class="bg-academic-50 text-slate-800 font-sans leading-relaxed relative">
+
+    <!-- ASIDE STICKY FLOTANTE: RECORDATORIO PERMANENTE DE CONSIGNA Y CONTADOR -->
+    <aside id="sticky-consigna" class="print:hidden fixed bottom-5 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-xs sm:w-80 bg-academic-900 text-white rounded-xl shadow-2xl border-2 border-blue-500 overflow-hidden transition-all duration-300">
+        <div class="bg-blue-600 px-4 py-2.5 flex items-center justify-between cursor-pointer select-none print:hidden" onclick="toggleConsigna()">
+    <div class="flex items-center gap-2">
+        <span class="text-base">📋</span>
+        <span class="font-bold text-xs uppercase tracking-wider">Consigna Obligatoria</span>
+    </div>
+    <div class="flex items-center gap-2">
+        <span id="progress-badge" class="text-[10px] font-mono bg-blue-900 text-blue-200 px-2 py-0.5 rounded-full font-bold">0/26</span>
+        <span id="consigna-toggle-icon" class="text-xs font-mono font-bold bg-blue-700 px-2 py-0.5 rounded hover:bg-blue-800">+</span>
+    </div>
+</div>
+        
+        <!-- Contenido desplegable -->
+        <div id="consigna-content" class="hidden p-4 text-xs space-y-2.5 bg-slate-900/95 backdrop-blur-md">
+            <div class="flex justify-between items-center pb-1 border-b border-slate-700">
+                <p class="text-slate-300 font-medium">Ítems de análisis por ejercicio:</p>
+                <button onclick="resetAllProgress()" class="text-[10px] text-rose-400 hover:underline">Reiniciar tildes</button>
+            </div>
+            <ol class="space-y-1.5 text-slate-200 list-decimal pl-4 font-mono text-[11px]">
+                <li><strong class="text-blue-400">Dominio:</strong> \(\text{Dom}(f)\)</li>
+                <li><strong class="text-blue-400">Imagen:</strong> \(\text{Im}(f)\)</li>
+                <li><strong class="text-amber-400">Asíntota:</strong> Horizontal (\(y=k\)) o Vertical (\(x=h\))</li>
+                <li><strong class="text-emerald-400">Intersección Eje Y:</strong> \(f(0)\) (Ordenada)</li>
+                <li><strong class="text-emerald-400">Intersección Eje X:</strong> \(f(x)=0\) (Ceros / \(C^0\))</li>
+                <li><strong class="text-purple-400">Conjuntos de Signo:</strong> \(C^+\) y \(C^-\)</li>
+                <li><strong class="text-purple-400">Monotonía:</strong> Crecimiento (\(C\uparrow\)) o Decrecimiento (\(C\downarrow\))</li>
+                <li><strong class="text-rose-400">Gráfico:</strong> Trazado cartesiano cualitativo</li>
+            </ol>
+            <div class="pt-2 border-t border-slate-700 text-[10px] text-slate-400 text-center italic">
+                * En inversión analítica: obtener \(f^{-1}(x)\) y graficar simetría axial respecto a \(y = x\).
+            </div>
+        </div>
+    </aside>
+
+    <!-- Header Principal -->
+    <header class="bg-academic-900 text-white border-b-4 border-blue-600 shadow-lg md:sticky md:top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <a href="../" class="block mb-1 text-xs text-blue-300 hover:underline">← Clases de Matemática en Palermo</a>
+                <span class="text-xs font-semibold uppercase tracking-widest text-blue-400">Análisis Matemático • Unidad III</span>
+                <h1 class="text-2xl md:text-3xl font-serif font-bold text-slate-100">Estudio Completo: Exponenciales, Logaritmos e Inversión</h1>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <div class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1 flex items-center gap-2">
+                    <span class="text-xs text-slate-300">Progreso:</span>
+                    <span id="header-progress" class="text-xs font-mono font-bold text-emerald-400">0 / 26 hechos</span>
+                </div>
+                <nav class="flex flex-wrap gap-1.5 text-xs font-medium">
+                    <a href="#teoria" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-blue-600 transition text-slate-200">Teoría</a>
+                    <a href="#exponenciales" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-blue-600 transition text-slate-200">Exponenciales</a>
+                    <a href="#logaritmicas" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-blue-600 transition text-slate-200">Logarítmicas</a>
+                    <a href="#inversas" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-blue-600 transition text-slate-200">Inversas</a>
+                    <a href="#propuestos" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-blue-600 transition text-slate-200">Extra</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-10 space-y-16">
+
+        <!-- SECCIÓN 0: MARCO TEÓRICO COMPLETO -->
+        <section id="teoria" class="space-y-6">
+            <div class="border-b border-slate-300 pb-2">
+                <h2 class="text-2xl font-serif font-bold text-academic-900 flex items-center gap-3">
+                    <span class="bg-blue-600 text-white text-xs font-sans px-2.5 py-1 rounded">Módulo 0</span>
+                    Fundamentos Teóricos y Propiedades Operatorias
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Marco Exponencial -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <h3 class="text-lg font-bold text-slate-900 border-l-4 border-blue-600 pl-3">Función Exponencial</h3>
+                    <p class="text-sm text-slate-600">Estructura general con corrimientos horizontales y verticales:</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center text-md text-blue-700 font-bold">
+                        \( f(x) = A \cdot b^{x - h} + k \quad (b > 0, \, b \neq 1) \)
+                    </div>
+                    <ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-5">
+                        <li><strong>Dominio:</strong> Siempre \(\text{Dom}(f) = \mathbb{R}\).</li>
+                        <li><strong>Asíntota Horizontal (AH):</strong> Recta \(y = k\).</li>
+                        <li><strong>Imagen:</strong> Si \(A > 0 \implies \text{Im}(f) = (k, +\infty)\); si \(A < 0 \implies \text{Im}(f) = (-\infty, k)\).</li>
+                        <li><strong>Crecimiento:</strong> Creciente si (\(b > 1\) y \(A > 0\)) o (\(0 < b < 1\) y \(A < 0\)).</li>
+                    </ul>
+                </div>
+
+                <!-- Marco Logarítmico -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <h3 class="text-lg font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">Definición y Propiedades de Logaritmos</h3>
+                    <div class="bg-slate-50 p-2.5 rounded font-mono text-center text-sm text-indigo-800">
+                        \( \log_b(a) = c \iff b^c = a \quad (a > 0, \, b > 0, \, b \neq 1) \)
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-mono text-slate-700">
+                        <span class="bg-slate-50 p-1.5 rounded">1. \(\log_a(a) = 1; \log_a(1) = 0\)</span>
+                        <span class="bg-slate-50 p-1.5 rounded">2. \(\log_a(u \cdot v) = \log_a u + \log_a v\)</span>
+                        <span class="bg-slate-50 p-1.5 rounded">3. \(\log_a(u/v) = \log_a u - \log_a v\)</span>
+                        <span class="bg-slate-50 p-1.5 rounded">4. \(\log_a(u^n) = n \cdot \log_a u\)</span>
+                        <span class="bg-slate-50 p-1.5 rounded col-span-2">5. Cambio de base: \(\log_b a = \frac{\log a}{\log b} = \frac{\ln a}{\ln b}\)</span>
+                    </div>
+                    <p class="text-xs text-slate-600"><strong>Función Logarítmica:</strong> Presenta Asíntota Vertical en la frontera de su argumento (\(x - h = 0 \implies x = h\)).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 1: BANCO DE FUNCIONES EXPONENCIALES -->
+        <section id="exponenciales" class="space-y-6">
+            <div class="border-b border-slate-300 pb-2">
+                <h2 class="text-2xl font-serif font-bold text-academic-900 flex items-center gap-3">
+                    <span class="bg-blue-600 text-white text-xs font-sans px-2.5 py-1 rounded">Sección I</span>
+                    Funciones Exponenciales (Páginas 1 a 8)
+                </h2>
+            </div>
+
+            <!-- Lista Ordenada de Ejercicios Exponenciales -->
+            <ol class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0">
+
+                <!-- EXP 1: Canónica 2^x (Pág 1) -->
+                <li id="card_ex1" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#1</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 1</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex1')" id="btn_ex1" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = 2^x \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Función exponencial elemental con asíntota en el eje de abscisas.</p>
+                        
+                        <details id="det_exp1" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((0, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = 0\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 2^0 = 1\)</p>
+                                <p><strong>Intersección con X:</strong> \(2^x = 0 \implies\) No tiene solución (\(\emptyset\))</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \emptyset\)</span>
+                                    <span>\(C^+ = \mathbb{R}\)</span>
+                                    <span>\(C^- = \emptyset\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp1"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 2: 2^x - 8 (Pág 2 izq) -->
+                <li id="card_ex2" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#2</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 2 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex2')" id="btn_ex2" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = 2^x - 8 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Traslación vertical hacia abajo de 8 unidades.</p>
+                        
+                        <details id="det_exp2" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-8, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -8\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 2^0 - 8 = -7\)</p>
+                                <p><strong>Cero (\(f(x)=0\)):</strong> \(2^x = 8 \implies 2^x = 2^3 \implies x = 3\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{3\}\)</span>
+                                    <span>\(C^+ = (3, +\infty)\)</span>
+                                    <span>\(C^- = (-\infty, 3)\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp2"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 3: 2^x + 1 (Pág 2 der) -->
+                <li id="card_ex3" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#3</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 2 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex3')" id="btn_ex3" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = 2^x + 1 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Curva enteramente positiva por encima de su asíntota horizontal.</p>
+                        
+                        <details id="det_exp3" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((1, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = 1\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 2^0 + 1 = 2\)</p>
+                                <p><strong>Cero:</strong> \(2^x = -1 \implies\) Imposible en \(\mathbb{R}\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \emptyset\)</span>
+                                    <span>\(C^+ = \mathbb{R}\)</span>
+                                    <span>\(C^- = \emptyset\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp3"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 4: 3^x - 9 (Pág 3 izq) -->
+                <li id="card_ex4" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#4</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 3 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex4')" id="btn_ex4" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = 3^x - 9 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Exponencial en base 3 con raíz entera resuelta por igualación de bases.</p>
+                        
+                        <details id="det_exp4" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-9, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -9\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 3^0 - 9 = -8\)</p>
+                                <p><strong>Cero:</strong> \(3^x = 9 \implies 3^x = 3^2 \implies x = 2\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{2\}\)</span>
+                                    <span>\(C^+ = (2, +\infty)\)</span>
+                                    <span>\(C^- = (-\infty, 2)\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp4"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 5: 4^x - 1 (Pág 3 izq inf) -->
+                <li id="card_ex5" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#5</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 3 (Inf)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex5')" id="btn_ex5" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = 4^x - 1 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Interseca a los dos ejes coordenados exactamente en el punto \((0,0)\).</p>
+                        
+                        <details id="det_exp5" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-1, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -1\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 4^0 - 1 = 0\)</p>
+                                <p><strong>Cero:</strong> \(4^x = 1 \implies x = 0\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{0\}\)</span>
+                                    <span>\(C^+ = (0, +\infty)\)</span>
+                                    <span>\(C^- = (-\infty, 0)\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp5"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 6: 3^{x-1} - 9 (Pág 3 der) -->
+                <li id="card_ex6" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#6</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 3 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex6')" id="btn_ex6" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = 3^{x-1} - 9 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Desplazamiento horizontal unitario a la derecha y 9 unidades hacia abajo.</p>
+                        
+                        <details id="det_exp6" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-9, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -9\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 3^{-1} - 9 = \frac{1}{3} - 9 = -\frac{26}{3} \approx -8{,}67\)</p>
+                                <p><strong>Cero:</strong> \(3^{x-1} = 9 \implies 3^{x-1} = 3^2 \implies x-1=2 \implies x = 3\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{3\}\)</span>
+                                    <span>\(C^+ = (3, +\infty)\)</span>
+                                    <span>\(C^- = (-\infty, 3)\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp6"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 7: 2^{x+5} - 8 (Pág 4) -->
+                <li id="card_ex7" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#7</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 4</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex7')" id="btn_ex7" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = 2^{x+5} - 8 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Desplazamiento horizontal de 5 unidades a la izquierda.</p>
+                        
+                        <details id="det_exp7" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-8, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -8\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 2^5 - 8 = 32 - 8 = 24\)</p>
+                                <p><strong>Cero:</strong> \(2^{x+5} = 8 \implies x+5 = 3 \implies x = -2\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{-2\}\)</span>
+                                    <span>\(C^+ = (-2, +\infty)\)</span>
+                                    <span>\(C^- = (-\infty, -2)\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp7"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 8: -3^{x+2} + 5 (Pág 5 izq) -->
+                <li id="card_ex8" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#8</span>
+                                <span class="text-xs font-bold text-purple-600 uppercase bg-purple-50 px-2 py-0.5 rounded">Pág. 5 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex8')" id="btn_ex8" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = -3^{x+2} + 5 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Inversión vertical con uso de logaritmos para despejar la raíz.</p>
+                        
+                        <details id="det_exp8" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-\infty, 5)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = 5\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = -3^2 + 5 = -9 + 5 = -4\)</p>
+                                <p><strong>Cero:</strong> \(3^{x+2} = 5 \implies x = \frac{\log 5}{\log 3} - 2 \approx -0{,}53\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{-0{,}53\}\)</span>
+                                    <span>\(C^+ = (-\infty; -0{,}53)\)</span>
+                                    <span>\(C^- = (-0{,}53; +\infty)\)</span>
+                                    <span>\(C\downarrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp8"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 9: -2^{x-1} + 3 (Pág 5 der) -->
+                <li id="card_ex9" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#9</span>
+                                <span class="text-xs font-bold text-purple-600 uppercase bg-purple-50 px-2 py-0.5 rounded">Pág. 5 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex9')" id="btn_ex9" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = -2^{x-1} + 3 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Reflejo en el eje X con cota superior dada por la asíntota \(y=3\).</p>
+                        
+                        <details id="det_exp9" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-\infty, 3)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = 3\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = -2^{-1} + 3 = -0{,}5 + 3 = 2{,}5\)</p>
+                                <p><strong>Cero:</strong> \(2^{x-1} = 3 \implies x = \frac{\log 3}{\log 2} + 1 \approx 2{,}58\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{2{,}58\}\)</span>
+                                    <span>\(C^+ = (-\infty; 2{,}58)\)</span>
+                                    <span>\(C^- = (2{,}58; +\infty)\)</span>
+                                    <span>\(C\downarrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp9"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 10: -4^{x+1} - 3 (Pág 6 izq) -->
+                <li id="card_ex10" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#10</span>
+                                <span class="text-xs font-bold text-purple-600 uppercase bg-purple-50 px-2 py-0.5 rounded">Pág. 6 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex10')" id="btn_ex10" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = -4^{x+1} - 3 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Curva confinada por debajo de \(y = -3\), estrictamente decreciente.</p>
+                        
+                        <details id="det_exp10" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-\infty, -3)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -3\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = -4^1 - 3 = -7\)</p>
+                                <p><strong>Cero:</strong> \(-4^{x+1} = 3 \implies 4^{x+1} = -3 \implies\) Imposible en \(\mathbb{R}\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \emptyset\)</span>
+                                    <span>\(C^+ = \emptyset\)</span>
+                                    <span>\(C^- = \mathbb{R}\)</span>
+                                    <span>\(C\downarrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp10"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 11: (1/2)^{x-3} - 1 (Pág 7 izq) -->
+                <li id="card_ex11" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#11</span>
+                                <span class="text-xs font-bold text-amber-600 uppercase bg-amber-50 px-2 py-0.5 rounded">Pág. 7 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex11')" id="btn_ex11" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \left(\frac{1}{2}\right)^{x-3} - 1 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Base \(0 < b < 1\), con comportamiento decreciente regular.</p>
+                        
+                        <details id="det_exp11" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-1, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -1\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = (1/2)^{-3} - 1 = 8 - 1 = 7\)</p>
+                                <p><strong>Cero:</strong> \((1/2)^{x-3} = 1 \implies x-3 = 0 \implies x = 3\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{3\}\)</span>
+                                    <span>\(C^+ = (-\infty, 3)\)</span>
+                                    <span>\(C^- = (3, +\infty)\)</span>
+                                    <span>\(C\downarrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp11"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 12: (1/2)^{x+5} + 2 (Pág 7 der) -->
+                <li id="card_ex12" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#12</span>
+                                <span class="text-xs font-bold text-amber-600 uppercase bg-amber-50 px-2 py-0.5 rounded">Pág. 7 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex12')" id="btn_ex12" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \left(\frac{1}{2}\right)^{x+5} + 2 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Curva decreciente con asíntota en \(y = 2\), sin ceros reales.</p>
+                        
+                        <details id="det_exp12" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((2, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = 2\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = (1/2)^5 + 2 = \frac{1}{32} + 2 = 2{,}03125\)</p>
+                                <p><strong>Cero:</strong> \((1/2)^{x+5} = -2 \implies\) Imposible en \(\mathbb{R}\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \emptyset\)</span>
+                                    <span>\(C^+ = \mathbb{R}\)</span>
+                                    <span>\(C^- = \emptyset\)</span>
+                                    <span>\(C\downarrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp12"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 13: -(1/3)^x - 4 (Pág 8 izq) -->
+                <li id="card_ex13" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#13</span>
+                                <span class="text-xs font-bold text-purple-600 uppercase bg-purple-50 px-2 py-0.5 rounded">Pág. 8 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex13')" id="btn_ex13" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = -\left(\frac{1}{3}\right)^x - 4 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Concurrencia de base fraccionaria y signo negativo: resulta creciente.</p>
+                        
+                        <details id="det_exp13" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-\infty, -4)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -4\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = -1 - 4 = -5\)</p>
+                                <p><strong>Cero:</strong> \(-\left(\frac{1}{3}\right)^x = 4 \implies\) Imposible en \(\mathbb{R}\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \emptyset\)</span>
+                                    <span>\(C^+ = \emptyset\)</span>
+                                    <span>\(C^- = \mathbb{R}\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp13"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- EXP 14: (3/2)^x - 2 (Pág 8 der) -->
+                <li id="card_ex14" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-blue-600 text-white px-2 py-0.5 rounded">#14</span>
+                                <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Pág. 8 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex14')" id="btn_ex14" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \left(\frac{3}{2}\right)^x - 2 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-blue-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AH}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Al ser \(b = 1{,}5 > 1\), la curva exponencial es creciente.</p>
+                        
+                        <details id="det_exp14" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-blue-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Imagen:</strong> \((-2, +\infty)\)</p>
+                                <p><strong>Asíntota Horizontal:</strong> \(y = -2\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = 1 - 2 = -1\)</p>
+                                <p><strong>Cero:</strong> \((1{,}5)^x = 2 \implies x = \frac{\log 2}{\log 1{,}5} \approx 1{,}71\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{1{,}71\}\)</span>
+                                    <span>\(C^+ = (1{,}71; +\infty)\)</span>
+                                    <span>\(C^- = (-\infty; 1{,}71)\)</span>
+                                    <span>\(C\uparrow = \mathbb{R}\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_exp14"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+            </ol>
+        </section>
+
+        <!-- SECCIÓN 2: BANCO DE FUNCIONES LOGARÍTMICAS -->
+        <section id="logaritmicas" class="space-y-6">
+            <div class="border-b border-slate-300 pb-2">
+                <h2 class="text-2xl font-serif font-bold text-academic-900 flex items-center gap-3">
+                    <span class="bg-indigo-600 text-white text-xs font-sans px-2.5 py-1 rounded">Sección II</span>
+                    Funciones Logarítmicas (Páginas 9 a 13)
+                </h2>
+            </div>
+
+            <!-- Lista Ordenada de Ejercicios Logarítmicos -->
+            <ol start="15" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0">
+
+                <!-- LOG 1: Canónica log2(x) (Pág 9/10) -->
+                <li id="card_ex15" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#15</span>
+                                <span class="text-xs font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Pág. 9/10</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex15')" id="btn_ex15" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_2(x) \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Función logarítmica canónica con asíntota vertical en el eje Y.</p>
+                        
+                        <details id="det_log1" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(x > 0 \implies (0, +\infty)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = 0\)</p>
+                                <p><strong>Ordenada al origen:</strong> No existe (\(0 \notin \text{Dom}\))</p>
+                                <p><strong>Cero:</strong> \(\log_2 x = 0 \implies x = 2^0 = 1\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{1\}\)</span>
+                                    <span>\(C^+ = (1, +\infty)\)</span>
+                                    <span>\(C^- = (0, 1)\)</span>
+                                    <span>\(C\uparrow = (0, +\infty)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log1"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- LOG 2: log2(x-5) + 3 (Pág 10) -->
+                <li id="card_ex16" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#16</span>
+                                <span class="text-xs font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Pág. 10</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex16')" id="btn_ex16" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_2(x-5) + 3 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Desplazamiento horizontal a \(x=5\) y traslación vertical de 3 unidades.</p>
+                        
+                        <details id="det_log2" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(x - 5 > 0 \implies (5, +\infty)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = 5\)</p>
+                                <p><strong>Ordenada al origen:</strong> No existe (\(0 \notin \text{Dom}\))</p>
+                                <p><strong>Cero:</strong> \(\log_2(x-5) = -3 \implies x - 5 = 2^{-3} \implies x = \frac{41}{8} = 5{,}125\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{5{,}125\}\)</span>
+                                    <span>\(C^+ = (5{,}125; +\infty)\)</span>
+                                    <span>\(C^- = (5; 5{,}125)\)</span>
+                                    <span>\(C\uparrow = (5, +\infty)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log2"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- LOG 3: log3(x+2) (Pág 11 izq) -->
+                <li id="card_ex17" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#17</span>
+                                <span class="text-xs font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Pág. 11 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex17')" id="btn_ex17" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_3(x+2) \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Con corte en ambos ejes y traslación horizontal a la izquierda.</p>
+                        
+                        <details id="det_log3" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(x + 2 > 0 \implies (-2, +\infty)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = -2\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = \log_3(2) \approx 0{,}63\)</p>
+                                <p><strong>Cero:</strong> \(x + 2 = 3^0 = 1 \implies x = -1\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{-1\}\)</span>
+                                    <span>\(C^+ = (-1, +\infty)\)</span>
+                                    <span>\(C^- = (-2, -1)\)</span>
+                                    <span>\(C\uparrow = (-2, +\infty)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log3"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- LOG 4: log_{1/3}(x+2) (Pág 11 der) -->
+                <li id="card_ex18" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#18</span>
+                                <span class="text-xs font-bold text-amber-600 uppercase bg-amber-50 px-2 py-0.5 rounded">Pág. 11 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex18')" id="btn_ex18" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_{1/3}(x+2) \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Base fraccionaria que convierte la curva en estrictamente decreciente.</p>
+                        
+                        <details id="det_log4" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(x > -2 \implies (-2, +\infty)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = -2\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = \log_{1/3}(2) \approx -0{,}63\)</p>
+                                <p><strong>Cero:</strong> \(x + 2 = (1/3)^0 = 1 \implies x = -1\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{-1\}\)</span>
+                                    <span>\(C^+ = (-2, -1)\)</span>
+                                    <span>\(C^- = (-1, +\infty)\)</span>
+                                    <span>\(C\downarrow = (-2, +\infty)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log4"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- LOG 5: log2(5-x) (Pág 12 izq) -->
+                <li id="card_ex19" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#19</span>
+                                <span class="text-xs font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Pág. 12 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex19')" id="btn_ex19" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_2(5-x) \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">El signo negativo en \(x\) orienta el dominio hacia \(-\infty\).</p>
+                        
+                        <details id="det_log5" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(5 - x > 0 \implies x < 5 \implies (-\infty, 5)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = 5\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = \log_2(5) \approx 2{,}32\)</p>
+                                <p><strong>Cero:</strong> \(5 - x = 2^0 = 1 \implies x = 4\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{4\}\)</span>
+                                    <span>\(C^+ = (-\infty, 4)\)</span>
+                                    <span>\(C^- = (4, 5)\)</span>
+                                    <span>\(C\downarrow = (-\infty, 5)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log5"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- LOG 6: log_{1/2}(3-x) (Pág 12 der) -->
+                <li id="card_ex20" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#20</span>
+                                <span class="text-xs font-bold text-amber-600 uppercase bg-amber-50 px-2 py-0.5 rounded">Pág. 12 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex20')" id="btn_ex20" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_{1/2}(3-x) \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Base fraccionaria con argumento negativo: resulta creciente.</p>
+                        
+                        <details id="det_log6" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(3 - x > 0 \implies x < 3 \implies (-\infty, 3)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = 3\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = \log_{1/2}(3) \approx -1{,}58\)</p>
+                                <p><strong>Cero:</strong> \(3 - x = (1/2)^0 = 1 \implies x = 2\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{2\}\)</span>
+                                    <span>\(C^+ = (2, 3)\)</span>
+                                    <span>\(C^- = (-\infty, 2)\)</span>
+                                    <span>\(C\uparrow = (-\infty, 3)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log6"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- LOG 7: log_{2/3}(4-x) + 2 (Pág 13 izq) -->
+                <li id="card_ex21" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#21</span>
+                                <span class="text-xs font-bold text-amber-600 uppercase bg-amber-50 px-2 py-0.5 rounded">Pág. 13 (Izq)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex21')" id="btn_ex21" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_{2/3}(4-x) + 2 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Transformación compuesta con desplazamiento vertical.</p>
+                        
+                        <details id="det_log7" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(4 - x > 0 \implies (-\infty, 4)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = 4\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = \frac{\ln 4}{\ln(2/3)} + 2 \approx -1{,}42\)</p>
+                                <p><strong>Cero:</strong> \(\log_{2/3}(4-x) = -2 \implies 4-x = (2/3)^{-2} = \frac{9}{4} \implies x = 1{,}75\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{1{,}75\}\)</span>
+                                    <span>\(C^+ = (1{,}75; 4)\)</span>
+                                    <span>\(C^- = (-\infty; 1{,}75)\)</span>
+                                    <span>\(C\uparrow = (-\infty, 4)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log7"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+                <!-- LOG 8: log4(x+1) - 3 (Pág 13 der) -->
+                <li id="card_ex22" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between transition duration-200">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">#22</span>
+                                <span class="text-xs font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Pág. 13 (Der)</span>
+                            </div>
+                            <button type="button" onclick="toggleStatus('ex22')" id="btn_ex22" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold font-mono text-slate-900">\( f(x) = \log_4(x+1) - 3 \)</h4>
+                            <div class="relative has-tooltip">
+                                <span class="text-[10px] font-bold text-slate-400 hover:text-indigo-600 cursor-help">ℹ️ Consigna</span>
+                                <div class="tooltip-box absolute right-0 top-5 w-56 p-2.5 bg-slate-900 text-white text-[10px] rounded shadow-xl z-30 pointer-events-none">
+                                    Hallar: \(\text{Dom}, \text{Im}, \text{AV}, f(0), C^0, C^+, C^-, C\uparrow, C\downarrow\) y gráfica.
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Cero alejado de gran magnitud debido a la potencia \(4^3 = 64\).</p>
+                        
+                        <details id="det_log8" class="mt-3 text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <summary class="font-bold text-indigo-600 cursor-pointer">Ver Análisis Completo y Gráfica</summary>
+                            <div class="mt-2 space-y-1.5 text-slate-700">
+                                <p><strong>Dominio:</strong> \(x + 1 > 0 \implies (-1, +\infty)\)</p>
+                                <p><strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                                <p><strong>Asíntota Vertical:</strong> \(x = -1\)</p>
+                                <p><strong>Ordenada al origen:</strong> \(f(0) = \log_4(1) - 3 = 0 - 3 = -3\)</p>
+                                <p><strong>Cero:</strong> \(\log_4(x+1) = 3 \implies x + 1 = 4^3 = 64 \implies x = 63\)</p>
+                                <div class="grid grid-cols-2 gap-1 text-[11px] font-mono mt-2 bg-white p-2 rounded border border-slate-200">
+                                    <span>\(C^0 = \{63\}\)</span>
+                                    <span>\(C^+ = (63, +\infty)\)</span>
+                                    <span>\(C^- = (-1, 63)\)</span>
+                                    <span>\(C\uparrow = (-1, +\infty)\)</span>
+                                </div>
+                                <div class="h-44 mt-3 relative"><canvas id="chart_log8"></canvas></div>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+
+            </ol>
+        </section>
+
+        <!-- SECCIÓN 3: DUALIDAD E INVERSIÓN ANALÍTICA -->
+        <section id="inversas" class="space-y-6">
+            <div class="border-b border-slate-300 pb-2">
+                <h2 class="text-2xl font-serif font-bold text-academic-900 flex items-center gap-3">
+                    <span class="bg-emerald-600 text-white text-xs font-sans px-2.5 py-1 rounded">Sección III</span>
+                    Inversión Analítica y Simetría (\(f \leftrightarrow f^{-1}\)) (Páginas 14 a 16)
+                </h2>
+            </div>
+
+            <ol start="23" class="space-y-8 list-none p-0 m-0">
+
+                <!-- CASO INVERSA 1 (Páginas 14 y 15) -->
+                <li id="card_ex23" class="exercise-card p-6 bg-white rounded-xl border border-slate-300 shadow-sm space-y-4 transition duration-200">
+                    <div class="flex justify-between items-center flex-wrap gap-2 pb-2 border-b border-slate-200">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono font-bold bg-emerald-700 text-white px-2.5 py-1 rounded">#23</span>
+                            <span class="font-bold text-sm text-emerald-800 uppercase tracking-wide">Caso de Estudio 1 (Páginas 14 y 15)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded">\( f(x) = 2^{x-3} - 5 \iff f^{-1}(x) = \log_2(x+5) + 3 \)</span>
+                            <button type="button" onclick="toggleStatus('ex23')" id="btn_ex23" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2">
+                            <strong class="text-blue-700 block text-sm border-b pb-1">Función Directa: \(f(x) = 2^{x-3} - 5\)</strong>
+                            <p>• <strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                            <p>• <strong>Imagen:</strong> \((-5, +\infty)\)</p>
+                            <p>• <strong>Asíntota Horizontal:</strong> \(y = -5\)</p>
+                            <p>• <strong>Intersección con Eje Y:</strong> \((0; \, -4{,}875)\)</p>
+                            <p>• <strong>Intersección con Eje X (Cero):</strong> \((5{,}32; \, 0)\)</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2">
+                            <strong class="text-indigo-700 block text-sm border-b pb-1">Función Inversa: \(f^{-1}(x) = \log_2(x+5) + 3\)</strong>
+                            <p>• <strong>Dominio:</strong> \((-5, +\infty)\) <em>(= Imagen de f)</em></p>
+                            <p>• <strong>Imagen:</strong> \(\mathbb{R}\) <em>(= Dominio de f)</em></p>
+                            <p>• <strong>Asíntota Vertical:</strong> \(x = -5\) <em>(= AH reflejada)</em></p>
+                            <p>• <strong>Intersección con Eje Y:</strong> \((0; \, 5{,}32)\) <em>(= Cero reflejado)</em></p>
+                            <p>• <strong>Intersección con Eje X (Cero):</strong> \((-4{,}875; \, 0)\) <em>(= Ord. origen reflejada)</em></p>
+                        </div>
+                    </div>
+
+                    <!-- Procedimiento de Despeje -->
+                    <div class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-xs space-y-1">
+                        <p class="text-slate-400 font-sans font-bold">Despeje Analítico:</p>
+                        <p>1. Escribir con variables intercambiadas: \( x = 2^{y-3} - 5 \)</p>
+                        <p>2. Aislar término exponencial: \( x + 5 = 2^{y-3} \)</p>
+                        <p>3. Aplicar logaritmo en base 2: \( \log_2(x+5) = y - 3 \)</p>
+                        <p class="text-emerald-400 font-bold">4. Despeje de y: \( y = \log_2(x+5) + 3 \implies f^{-1}(x) = \log_2(x+5) + 3 \)</p>
+                    </div>
+
+                    <!-- Gráfica Combinada de Simetría -->
+                    <div class="bg-white p-4 rounded-lg border border-slate-200">
+                        <h5 class="text-xs font-bold text-slate-700 mb-2">Gráfica Dual y Simetría axial respecto a la recta identidad \(y = x\):</h5>
+                        <div class="h-64 relative w-full">
+                            <canvas id="chart_inv1"></canvas>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- CASO INVERSA 2 (Página 16) -->
+                <li id="card_ex24" class="exercise-card p-6 bg-white rounded-xl border border-slate-300 shadow-sm space-y-4 transition duration-200">
+                    <div class="flex justify-between items-center flex-wrap gap-2 pb-2 border-b border-slate-200">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono font-bold bg-emerald-700 text-white px-2.5 py-1 rounded">#24</span>
+                            <span class="font-bold text-sm text-emerald-800 uppercase tracking-wide">Caso de Estudio 2 (Página 16)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded">\( f(x) = \left(\frac{1}{3}\right)^{x+2} - 4 \iff f^{-1}(x) = \log_{1/3}(x+4) - 2 \)</span>
+                            <button type="button" onclick="toggleStatus('ex24')" id="btn_ex24" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                                <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2">
+                            <strong class="text-blue-700 block text-sm border-b pb-1">Función Directa: \(f(x) = (1/3)^{x+2} - 4\)</strong>
+                            <p>• <strong>Dominio:</strong> \(\mathbb{R}\)</p>
+                            <p>• <strong>Imagen:</strong> \((-4, +\infty)\)</p>
+                            <p>• <strong>Asíntota Horizontal:</strong> \(y = -4\)</p>
+                            <p>• <strong>Intersección Eje Y:</strong> \(f(0) = \frac{1}{9} - 4 = -\frac{35}{9} \approx -3{,}89\)</p>
+                            <p>• <strong>Cero:</strong> \((1/3)^{x+2} = 4 \implies x = \frac{\log 4}{\log(1/3)} - 2 \approx -3{,}26\)</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2">
+                            <strong class="text-indigo-700 block text-sm border-b pb-1">Función Inversa: \(f^{-1}(x) = \log_{1/3}(x+4) - 2\)</strong>
+                            <p>• <strong>Dominio:</strong> \((-4, +\infty)\)</p>
+                            <p>• <strong>Imagen:</strong> \(\mathbb{R}\)</p>
+                            <p>• <strong>Asíntota Vertical:</strong> \(x = -4\)</p>
+                            <p>• <strong>Intersección Eje Y:</strong> \(f^{-1}(0) = \log_{1/3}(4) - 2 \approx -3{,}26\)</p>
+                            <p>• <strong>Cero:</strong> \(\log_{1/3}(x+4) = 2 \implies x+4 = 1/9 \implies x = -3{,}89\)</p>
+                        </div>
+                    </div>
+
+                    <!-- Procedimiento de Despeje -->
+                    <div class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-xs space-y-1">
+                        <p class="text-slate-400 font-sans font-bold">Despeje Analítico:</p>
+                        <p>1. Escribir con variables intercambiadas: \( x = \left(\frac{1}{3}\right)^{y+2} - 4 \)</p>
+                        <p>2. Aislar término exponencial: \( x + 4 = \left(\frac{1}{3}\right)^{y+2} \)</p>
+                        <p>3. Aplicar logaritmo base 1/3: \( \log_{1/3}(x+4) = y + 2 \)</p>
+                        <p class="text-emerald-400 font-bold">4. Despeje de y: \( y = \log_{1/3}(x+4) - 2 \implies f^{-1}(x) = \log_{1/3}(x+4) - 2 \)</p>
+                    </div>
+
+                    <!-- Gráfica Combinada de Simetría -->
+                    <div class="bg-white p-4 rounded-lg border border-slate-200">
+                        <h5 class="text-xs font-bold text-slate-700 mb-2">Gráfica Dual y Simetría axial respecto a la recta identidad \(y = x\):</h5>
+                        <div class="h-64 relative w-full">
+                            <canvas id="chart_inv2"></canvas>
+                        </div>
+                    </div>
+                </li>
+
+            </ol>
+        </section>
+
+        <!-- SECCIÓN 4: EJERCICIOS COMPLEMENTARIOS Y DE APLICACIÓN -->
+        <section id="propuestos" class="space-y-6">
+            <div class="border-b border-slate-300 pb-2">
+                <h2 class="text-2xl font-serif font-bold text-academic-900 flex items-center gap-3">
+                    <span class="bg-slate-800 text-white text-xs font-sans px-2.5 py-1 rounded">Sección IV</span>
+                    Consolidación Práctica y Ecuaciones
+                </h2>
+            </div>
+
+            <!-- Lista Ordenada de Complementarios -->
+            <ol start="25" class="grid md:grid-cols-2 gap-6 list-none p-0 m-0">
+
+                <!-- Problema 1 -->
+                <li id="card_ex25" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3 transition duration-200">
+                    <div class="flex justify-between items-center mb-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono font-bold bg-slate-700 text-white px-2 py-0.5 rounded">#25</span>
+                            <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Problema Adicional 1</span>
+                        </div>
+                        <button type="button" onclick="toggleStatus('ex25')" id="btn_ex25" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                            <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                        </button>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Análisis con Base Neperiana (\(e\))</h4>
+                    <p class="text-xs text-slate-600">Determina analíticamente el dominio, imagen, asíntota horizontal y la función inversa de \( g(x) = e^{x-1} - 2 \).</p>
+                    <details class="text-xs text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <summary class="font-bold cursor-pointer text-blue-600">Ver Solución Paso a Paso</summary>
+                        <div class="mt-2 space-y-1 font-mono">
+                            <p>• \(\text{Dom}(g) = \mathbb{R}\)</p>
+                            <p>• \(\text{Im}(g) = (-2, +\infty)\)</p>
+                            <p>• Asíntota Horizontal: \(y = -2\)</p>
+                            <p>• Despeje: \(x = e^{y-1} - 2 \implies x+2 = e^{y-1} \implies \ln(x+2) = y - 1\)</p>
+                            <p class="text-emerald-700 font-bold">• Inversa: \(g^{-1}(x) = \ln(x+2) + 1\)</p>
+                        </div>
+                    </details>
+                </li>
+
+                <!-- Problema 2 -->
+                <li id="card_ex26" class="exercise-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3 transition duration-200">
+                    <div class="flex justify-between items-center mb-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono font-bold bg-slate-700 text-white px-2 py-0.5 rounded">#26</span>
+                            <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Problema Adicional 2</span>
+                        </div>
+                        <button type="button" onclick="toggleStatus('ex26')" id="btn_ex26" class="check-btn flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-300 bg-slate-100 text-slate-600 hover:border-emerald-500 transition">
+                            <span class="check-icon">○</span> <span class="check-label">Pendiente</span>
+                        </button>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Ecuación con Propiedad de Producto</h4>
+                    <p class="text-xs text-slate-600">Resuelve para \(x \in \mathbb{R}\): \( \log_2(x) + \log_2(x-2) = 3 \).</p>
+                    <details class="text-xs text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <summary class="font-bold cursor-pointer text-blue-600">Ver Solución Paso a Paso</summary>
+                        <div class="mt-2 space-y-1 font-mono">
+                            <p>• Restricción de dominio: \(x > 0 \land x-2 > 0 \implies x > 2\)</p>
+                            <p>• Producto: \(\log_2(x(x-2)) = 3 \implies x^2 - 2x = 2^3 = 8\)</p>
+                            <p>• Cuadrática: \(x^2 - 2x - 8 = 0 \implies (x-4)(x+2) = 0\)</p>
+                            <p>• Descarte: \(x = -2\) no pertenece al dominio del logaritmo.</p>
+                            <p class="text-emerald-700 font-bold">• Solución única: \(x = 4\)</p>
+                        </div>
+                    </details>
+                </li>
+
+            </ol>
+        </section>
+
+    </main>
+
+    <footer class="bg-academic-900 text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="mb-3">¿Te trabaste con algún ejercicio? Te ayudo en clases particulares en Palermo u online.</p>
+            <a href="https://api.whatsapp.com/send/?phone=5491166680697&text=Hola%21%20Vi%20el%20material%20de%20funciones%20exponenciales%20y%20logar%C3%ADtmicas%20y%20quisiera%20consultar%20por%20clases." target="_blank" rel="noopener" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-2.5 rounded-full">Escribime por WhatsApp</a>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE GRAFICACIÓN INTEGRAL Y CONTROL DEL WIDGET CON LOCALSTORAGE -->
+    <script>
+        const TOTAL_EXERCISES = 26;
+
+        // Función para colapsar/expandir el aside flotante de consignas
+        function toggleConsigna() {
+            const content = document.getElementById('consigna-content');
+            const icon = document.getElementById('consigna-toggle-icon');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.innerText = '−';
+            } else {
+                content.classList.add('hidden');
+                icon.innerText = '+';
+            }
+        }
+
+        // Función para alternar el estado de completado y guardarlo en localStorage
+        function toggleStatus(id) {
+            const storageKey = 'math_exercise_' + id;
+            const currentStatus = localStorage.getItem(storageKey) === 'true';
+            const newStatus = !currentStatus;
+            
+            localStorage.setItem(storageKey, newStatus);
+            applyStatus(id, newStatus);
+            updateProgressCounters();
+        }
+
+        // Aplica estilos visuales y texto según el estado
+        function applyStatus(id, isDone) {
+            const card = document.getElementById('card_' + id);
+            const btn = document.getElementById('btn_' + id);
+            if (!card || !btn) return;
+
+            const iconSpan = btn.querySelector('.check-icon');
+            const labelSpan = btn.querySelector('.check-label');
+
+            if (isDone) {
+                card.classList.add('is-done');
+                if (iconSpan) iconSpan.innerText = '✓';
+                if (labelSpan) labelSpan.innerText = 'Resuelto';
+            } else {
+                card.classList.remove('is-done');
+                if (iconSpan) iconSpan.innerText = '○';
+                if (labelSpan) labelSpan.innerText = 'Pendiente';
+            }
+        }
+
+        // Actualiza los contadores de progreso
+        function updateProgressCounters() {
+            let doneCount = 0;
+            for (let i = 1; i <= TOTAL_EXERCISES; i++) {
+                if (localStorage.getItem('math_exercise_ex' + i) === 'true') {
+                    doneCount++;
+                }
+            }
+            const progressStr = `${doneCount} / ${TOTAL_EXERCISES} hechos`;
+            const headerEl = document.getElementById('header-progress');
+            const badgeEl = document.getElementById('progress-badge');
+            
+            if (headerEl) headerEl.innerText = progressStr;
+            if (badgeEl) badgeEl.innerText = `${doneCount}/${TOTAL_EXERCISES}`;
+        }
+
+        // Reiniciar progreso
+        function resetAllProgress() {
+            if (!confirm('¿Deseas reiniciar todas las marcas de ejercicios resueltos?')) return;
+            for (let i = 1; i <= TOTAL_EXERCISES; i++) {
+                localStorage.removeItem('math_exercise_ex' + i);
+                applyStatus('ex' + i, false);
+            }
+            updateProgressCounters();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cargar el estado guardado en localStorage para cada ejercicio
+            for (let i = 1; i <= TOTAL_EXERCISES; i++) {
+                const id = 'ex' + i;
+                const isDone = localStorage.getItem('math_exercise_' + id) === 'true';
+                applyStatus(id, isDone);
+            }
+            updateProgressCounters();
+
+            // Creador genérico de gráficos para funciones individuales con asíntotas
+            const makeChart = (canvasId, func, minX, maxX, asympVal, asympType = 'h') => {
+                const canvas = document.getElementById(canvasId);
+                if(!canvas) return;
+                const ctx = canvas.getContext('2d');
+                const labels = [], data = [], asympData = [];
+                const steps = 60;
+                const stepSize = (maxX - minX) / steps;
+
+                for (let i = 0; i <= steps; i++) {
+                    const x = minX + i * stepSize;
+                    labels.push(x.toFixed(2));
+                    const y = func(x);
+                    data.push(y);
+                    if(asympType === 'h') asympData.push(asympVal);
+                }
+
+                const datasets = [{
+                    label: 'f(x)',
+                    data: data,
+                    borderColor: '#2563eb',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    tension: 0.2
+                }];
+
+                if(asympType === 'h' && asympVal !== null) {
+                    datasets.push({
+                        label: `Asíntota y = ${asympVal}`,
+                        data: asympData,
+                        borderColor: '#ef4444',
+                        borderWidth: 1.5,
+                        borderDash: [5, 5],
+                        pointRadius: 0
+                    });
+                }
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: { labels, datasets },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: true, labels: { boxWidth: 12, font: { size: 10 } } } },
+                        scales: {
+                            x: { ticks: { maxTicksLimit: 6, font: { size: 9 } } },
+                            y: { ticks: { maxTicksLimit: 6, font: { size: 9 } } }
+                        }
+                    }
+                });
+            };
+
+            // Enlazador lazy-load para renderizar solo cuando el usuario despliega el acordeón
+            const setupLazyChart = (detId, canvasId, chartFn) => {
+                const det = document.getElementById(detId);
+                if(!det) return;
+                let rendered = false;
+                det.addEventListener('toggle', () => {
+                    if(det.open && !rendered) {
+                        chartFn();
+                        rendered = true;
+                    }
+                });
+            };
+
+            // 1. Exponenciales
+            setupLazyChart('det_exp1', 'chart_exp1', () => makeChart('chart_exp1', x => Math.pow(2, x), -3, 3, 0));
+            setupLazyChart('det_exp2', 'chart_exp2', () => makeChart('chart_exp2', x => Math.pow(2, x) - 8, -2, 5, -8));
+            setupLazyChart('det_exp3', 'chart_exp3', () => makeChart('chart_exp3', x => Math.pow(2, x) + 1, -3, 3, 1));
+            setupLazyChart('det_exp4', 'chart_exp4', () => makeChart('chart_exp4', x => Math.pow(3, x) - 9, -2, 4, -9));
+            setupLazyChart('det_exp5', 'chart_exp5', () => makeChart('chart_exp5', x => Math.pow(4, x) - 1, -2, 2, -1));
+            setupLazyChart('det_exp6', 'chart_exp6', () => makeChart('chart_exp6', x => Math.pow(3, x-1) - 9, -1, 4, -9));
+            setupLazyChart('det_exp7', 'chart_exp7', () => makeChart('chart_exp7', x => Math.pow(2, x+5) - 8, -7, 0, -8));
+            setupLazyChart('det_exp8', 'chart_exp8', () => makeChart('chart_exp8', x => -Math.pow(3, x+2) + 5, -5, 0, 5));
+            setupLazyChart('det_exp9', 'chart_exp9', () => makeChart('chart_exp9', x => -Math.pow(2, x-1) + 3, -2, 4, 3));
+            setupLazyChart('det_exp10', 'chart_exp10', () => makeChart('chart_exp10', x => -Math.pow(4, x+1) - 3, -3, 1, -3));
+            setupLazyChart('det_exp11', 'chart_exp11', () => makeChart('chart_exp11', x => Math.pow(0.5, x-3) - 1, 0, 6, -1));
+            setupLazyChart('det_exp12', 'chart_exp12', () => makeChart('chart_exp12', x => Math.pow(0.5, x+5) + 2, -8, 0, 2));
+            setupLazyChart('det_exp13', 'chart_exp13', () => makeChart('chart_exp13', x => -Math.pow(1/3, x) - 4, -3, 3, -4));
+            setupLazyChart('det_exp14', 'chart_exp14', () => makeChart('chart_exp14', x => Math.pow(1.5, x) - 2, -2, 4, -2));
+
+            // 2. Logarítmicas
+            setupLazyChart('det_log1', 'chart_log1', () => makeChart('chart_log1', x => Math.log2(x), 0.1, 8, null, 'v'));
+            setupLazyChart('det_log2', 'chart_log2', () => makeChart('chart_log2', x => Math.log2(x - 5) + 3, 5.1, 15, null, 'v'));
+            setupLazyChart('det_log3', 'chart_log3', () => makeChart('chart_log3', x => Math.log(x + 2)/Math.log(3), -1.9, 10, null, 'v'));
+            setupLazyChart('det_log4', 'chart_log4', () => makeChart('chart_log4', x => Math.log(x + 2)/Math.log(1/3), -1.9, 10, null, 'v'));
+            setupLazyChart('det_log5', 'chart_log5', () => makeChart('chart_log5', x => Math.log2(5 - x), -5, 4.9, null, 'v'));
+            setupLazyChart('det_log6', 'chart_log6', () => makeChart('chart_log6', x => Math.log(3 - x)/Math.log(0.5), -5, 2.9, null, 'v'));
+            setupLazyChart('det_log7', 'chart_log7', () => makeChart('chart_log7', x => (Math.log(4 - x)/Math.log(2/3)) + 2, -5, 3.9, null, 'v'));
+            setupLazyChart('det_log8', 'chart_log8', () => makeChart('chart_log8', x => (Math.log(x + 1)/Math.log(4)) - 3, -0.9, 70, null, 'v'));
+
+            // 3. Gráficos de Inversas (Dualidad sobre y = x)
+            const ctxInv1 = document.getElementById('chart_inv1')?.getContext('2d');
+            if(ctxInv1) {
+                const labels = [], fData = [], invData = [], idData = [];
+                for(let x = -4.8; x <= 8; x += 0.25) {
+                    labels.push(x.toFixed(2));
+                    fData.push(Math.pow(2, x-3) - 5);
+                    invData.push(x > -5 ? Math.log2(x + 5) + 3 : null);
+                    idData.push(x);
+                }
+                new Chart(ctxInv1, {
+                    type: 'line',
+                    data: {
+                        labels,
+                        datasets: [
+                            { label: 'f(x) = 2^(x-3) - 5', data: fData, borderColor: '#2563eb', borderWidth: 2, pointRadius: 0 },
+                            { label: 'f⁻¹(x) = log₂(x+5) + 3', data: invData, borderColor: '#10b981', borderWidth: 2, pointRadius: 0 },
+                            { label: 'Eje de Simetría y = x', data: idData, borderColor: '#94a3b8', borderDash: [4, 4], borderWidth: 1.5, pointRadius: 0 }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: { y: { min: -6, max: 10 }, x: { ticks: { maxTicksLimit: 10 } } }
+                    }
+                });
+            }
+
+            const ctxInv2 = document.getElementById('chart_inv2')?.getContext('2d');
+            if(ctxInv2) {
+                const labels = [], fData = [], invData = [], idData = [];
+                for(let x = -3.9; x <= 6; x += 0.25) {
+                    labels.push(x.toFixed(2));
+                    fData.push(Math.pow(1/3, x+2) - 4);
+                    invData.push(x > -4 ? (Math.log(x + 4)/Math.log(1/3)) - 2 : null);
+                    idData.push(x);
+                }
+                new Chart(ctxInv2, {
+                    type: 'line',
+                    data: {
+                        labels,
+                        datasets: [
+                            { label: 'f(x) = (1/3)^(x+2) - 4', data: fData, borderColor: '#2563eb', borderWidth: 2, pointRadius: 0 },
+                            { label: 'f⁻¹(x) = log_{1/3}(x+4) - 2', data: invData, borderColor: '#10b981', borderWidth: 2, pointRadius: 0 },
+                            { label: 'Eje de Simetría y = x', data: idData, borderColor: '#94a3b8', borderDash: [4, 4], borderWidth: 1.5, pointRadius: 0 }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: { y: { min: -6, max: 6 }, x: { ticks: { maxTicksLimit: 10 } } }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
