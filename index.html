@@ -100,10 +100,9 @@ footer{padding:2rem 0 5.5rem;text-align:center;font-size:.88rem;color:#64748b}
 @media(min-width:1000px){nav ul{display:flex}.grid.c3{grid-template-columns:repeat(3,1fr)}section{padding:5rem 0}.hero{padding:6rem 0}.hero .wrap{max-width:900px;margin-left:max(1.2rem,calc((100% - 1100px)/2))}}
 </style>
 </head>
-<body>
-<header><div class="wrap">
+<body><header><div class="wrap">
   <a class="logo" href="#inicio" aria-label="Inicio">π <b>Matemática</b> Palermo</a>
-  <nav aria-label="Principal"><ul><li><a href="#clases">Clases</a></li><li><a href="#metodo">Método</a></li><li><a href="#precios">Precios</a></li><li><a href="#zonas">Zonas</a></li><li><a href="#faq">Preguntas</a></li></ul></nav>
+  <nav aria-label="Principal"><ul><li><a href="#clases">Clases</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#metodo">Método</a></li><li><a href="#precios">Precios</a></li><li><a href="#zonas">Zonas</a></li><li><a href="#faq">Preguntas</a></li></ul></nav>
   <a class="btn btn-wa" href="#contacto">Consultar</a>
 </div></header>
 
@@ -121,18 +120,38 @@ footer{padding:2rem 0 5.5rem;text-align:center;font-size:.88rem;color:#64748b}
 </div>
 
 <section id="clases"><div class="wrap">
- <span class="kicker">Niveles</span><h2>Matemática para cada etapa</h2>
+ <span class="kicker">Niveles y Materias</span><h2>Matemática, Lógica y Pensamiento Científico</h2>
  <p class="lead">Adaptamos el ritmo y los ejemplos a tu nivel y a tus objetivos: aprobar, ponerte al día o llegar con confianza a un examen.</p>
  <div class="grid c3">
   <article class="card"><div class="ic">x</div><h3>Secundaria</h3><p>Álgebra, funciones, geometría, trigonometría y estadística.</p></article>
   <article class="card"><div class="ic">∑</div><h3>Ingreso y CBC</h3><p>Preparación para ingresos y para Análisis Matemático, Álgebra y Matemática del CBC.</p></article>
   <article class="card"><div class="ic">∫</div><h3>Universidad</h3><p>Análisis, Álgebra Lineal, Probabilidad y Estadística, cálculo en varias variables.</p></article>
+  <article class="card"><div class="ic">∧</div><h3>Lógica e IPC</h3><p>Introducción al Pensamiento Científico (CBC), Lógica Simbólica, tablas de verdad, deducción natural y falacias.</p></article>
   <article class="card"><div class="ic">✓</div><h3>Previas y exámenes</h3><p>Plan de estudio, práctica guiada y simulacros para rendir con seguridad.</p></article>
   <article class="card"><div class="ic">π</div><h3>Reforzamiento y tareas</h3><p>Seguimiento semanal y ayuda con trabajos prácticos y consignas.</p></article>
  </div>
 </div></section>
 
-<section id="metodo" class="alt"><div class="wrap">
+<section id="sobre-mi" class="alt"><div class="wrap">
+ <span class="kicker">Docente</span><h2>Sobre mí: Daniel Alejandro Salas</h2>
+ <div class="grid c2" style="align-items:center;gap:2rem">
+  <div style="display:flex;flex-direction:column;gap:1rem;align-items:center">
+   <img src="./assets/1.jpg" alt="Profesor Daniel Alejandro Salas" style="width:100%;max-width:320px;border-radius:var(--r);box-shadow:var(--sh);display:block;margin-inline:auto">
+   <img src="./assets/2.jpg" alt="Daniel Alejandro Salas en clase docente" style="width:100%;max-width:320px;border-radius:var(--r);box-shadow:var(--sh);display:block;margin-inline:auto">
+  </div>
+  <div>
+   <p class="lead" style="margin-bottom:1rem"><b>Licenciado en Lingüística Computacional (UBA)</b>, docente recibido con más de 10 años de trayectoria y profesor en la <b>ET N° 30 Norberto Piñero</b>.</p>
+   <p style="margin-bottom:1rem">Desde hace 15 años me dedico a dar clases particulares de Matemática, Lógica e Introducción al Pensamiento Científico (IPC). Mi objetivo principal es <b>desmitificar la dificultad de la matemática</b> y lograr que mis alumnos aprendan a pensar con autonomía.</p>
+   <p style="margin-bottom:1.4rem">Además del contenido específico de cada materia, transmito hábitos y métodos de estudio integrales que ayudan a los estudiantes a organizarse y aprender a estudiar en todas las asignaturas.</p>
+   <div style="display:flex;flex-wrap:wrap;gap:.8rem">
+    <a class="btn" style="background:#0a66c2;color:#fff;padding:.6rem 1.2rem;min-height:auto;font-size:.9rem" href="https://www.linkedin.com/in/danielalejandrosalas/" target="_blank" rel="noopener">Perfil de LinkedIn</a>
+    <a class="btn" style="background:#24292e;color:#fff;padding:.6rem 1.2rem;min-height:auto;font-size:.9rem" href="https://github.com/d-alejandro-salas" target="_blank" rel="noopener">Perfil de GitHub</a>
+   </div>
+  </div>
+ </div>
+</div></section>
+
+<section id="metodo"><div class="wrap">
  <span class="kicker">Cómo trabajamos</span><h2>Un método simple y claro</h2>
  <ol class="steps grid c3">
   <li><h3>Diagnóstico</h3><p>Vemos qué sabés, dónde te trabás y qué necesitás lograr.</p></li>
@@ -141,7 +160,7 @@ footer{padding:2rem 0 5.5rem;text-align:center;font-size:.88rem;color:#64748b}
  </ol>
 </div></section>
 
-<section id="precios"><div class="wrap">
+<section id="precios" class="alt"><div class="wrap">
  <span class="kicker">Precios</span><h2>Valores claros por clase</h2>
  <p class="lead">Cuantas más clases tomás en la semana, menor es el valor de cada una. Elegí la duración que mejor se adapte a vos.</p>
  <p class="promo" id="promo" hidden></p>
@@ -154,19 +173,19 @@ footer{padding:2rem 0 5.5rem;text-align:center;font-size:.88rem;color:#64748b}
  </div>
 </div></section>
 
-<section id="material" class="alt" hidden><div class="wrap">
+<section id="material" hidden><div class="wrap">
  <span class="kicker">Recursos</span><h2>Material didáctico propio</h2>
  <p class="lead">Guías y ejercicios actualizados que uso en mis clases. Descargalos gratis.</p>
  <div class="grid c3" id="material-list"></div>
 </div></section>
 
-<section id="zonas"><div class="wrap">
+<section id="zonas" class="alt"><div class="wrap">
  <span class="kicker">Zona</span><h2>Clases de Matemática en Palermo y alrededores</h2>
  <p class="lead">Atiendo en todo Palermo y barrios cercanos. Si preferís estudiar desde casa, también hay clases online por videollamada.</p>
  <ul class="tags"><li>Palermo Soho</li><li>Palermo Hollywood</li><li>Palermo Chico</li><li>Palermo Viejo</li><li>Botánico</li><li>Las Cañitas</li><li>Recoleta</li><li>Belgrano</li><li>Villa Crespo</li><li>Colegiales</li><li>Online</li></ul>
 </div></section>
 
-<section id="faq" class="alt"><div class="wrap">
+<section id="faq"><div class="wrap">
  <span class="kicker">Preguntas frecuentes</span><h2>Todo lo que querés saber</h2>
  <details><summary>¿Dónde se dan las clases?</summary><p>En Palermo (presencial, a coordinar) o por videollamada desde donde estés.</p></details>
  <details><summary>¿Cuánto dura cada clase?</summary><p>Podés elegir 60, 90 o 120 minutos. Para temas largos o exámenes cercanos suelen rendir más las de 90.</p></details>
@@ -229,11 +248,9 @@ function calcular() {
   let total = filas.slice(0, n).reduce((s, f) => s + f.precios[col], 0);
   const finde = PROMO_FINDE.activa && $('finde').checked;
   if (finde) total = Math.round((total * (1 - PROMO_FINDE.descuento)) / 100) * 100;
-  $('total').textContent = fmt(total);
-  $('prom').textContent = `≈ ${fmt(Math.round(total / n))} por clase${finde ? ' · promo fin de semana' : ''}`;
+  $('total').textContent = fmt(total);$('prom').textContent = `≈ ${fmt(Math.round(total / n))} por clase${finde ? ' · promo fin de semana' : ''}`;
 }
-$('dur').addEventListener('change', calcular); $('cant').addEventListener('change', calcular);
-$('finde').addEventListener('change', calcular);
+$('dur').addEventListener('change', calcular); $('cant').addEventListener('change', calcular);$('finde').addEventListener('change', calcular);
 
 // Promo fin de semana
 if (PROMO_FINDE.activa) {
@@ -244,25 +261,28 @@ if (PROMO_FINDE.activa) {
 } else $('finde').parentElement.hidden = true;
 calcular();
 
-// Material didáctico
+
 if (MATERIAL.length) {
   $('material-list').innerHTML = MATERIAL.map((m) => `<article class="card"><span class="kicker">${m.nivel}</span><h3>${m.titulo}</h3><p>${m.descripcion}</p><a class="btn btn-wa" href="${m.url}"${m.descargable ? ' download' : ''}>${m.descargable ? 'Descargar' : 'Ver'} ${m.tipo}</a></article>`).join('');
   $('material').hidden = false;
   document.querySelector('nav ul').insertAdjacentHTML('beforeend', '<li><a href="#material">Material</a></li>');
 }
 
-// Datos estructurados (se arman con los mismos precios)
 const ld = {
   '@context': 'https://schema.org', '@type': ['LocalBusiness', 'EducationalOrganization'],
-  name: 'Clases particulares de Matemática en Palermo', url: document.querySelector('link[rel=canonical]').href,
+  name: 'Clases particulares de Matemática y Lógica en Palermo', url: document.querySelector('link[rel=canonical]').href,
   image: document.querySelector('meta[property="og:image"]').content,
   description: document.querySelector('meta[name=description]').content,
-  telephone: '+5491166680697', priceRange: `${fmt(Math.min(...filas.flatMap((f) => f.precios)))} - ${fmt(Math.max(...filas.flatMap((f) => f.precios)))}`,
+  telephone: '+5491166680697',
+  sameAs: [
+    'https://www.linkedin.com/in/danielalejandrosalas/',
+    'https://github.com/d-alejandro-salas'
+  ],
+  priceRange: `${fmt(Math.min(...filas.flatMap((f) => f.precios)))} - ${fmt(Math.max(...filas.flatMap((f) => f.precios)))}`,
   address: { '@type': 'PostalAddress', addressLocality: 'Palermo, Ciudad Autónoma de Buenos Aires', addressCountry: 'AR' },
   areaServed: ['Palermo', 'Palermo Soho', 'Palermo Hollywood', 'Belgrano', 'Recoleta', 'Villa Crespo'],
   makesOffer: duraciones.map((d, i) => ({ '@type': 'Offer', name: `Clase de Matemática de ${d} minutos`, price: filas[0].precios[i], priceCurrency: PRECIOS.moneda })),
-};
-const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(ld); document.head.append(s);
+};const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(ld); document.head.append(s);
 $('y').textContent = new Date().getFullYear();
 </script>
 </body>
