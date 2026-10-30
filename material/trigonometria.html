@@ -109,35 +109,65 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
-                    <h3 class="text-lg font-bold text-slate-900 border-l-4 border-blue-600 pl-3">Propiedades de todo triángulo</h3>
-                    <ul class="text-sm text-slate-700 space-y-1.5 list-disc pl-5">
-                        <li><strong>Suma de ángulos interiores:</strong> \(\alpha + \beta + \gamma = 180^\circ\).</li>
-                        <li><strong>Lado y ángulo opuesto:</strong> al mayor ángulo se opone el mayor lado, al menor ángulo el menor lado, y a ángulos iguales, lados iguales.</li>
-                        <li><strong>Pitágoras</strong> (solo triángulos rectángulos): \(\text{cateto}_A^2 + \text{cateto}_B^2 = H^2\). La hipotenusa H es el lado opuesto al ángulo recto.</li>
-                    </ul>
-                    <div class="bg-amber-50 border border-amber-200 rounded p-3 text-xs text-amber-900">
-                        <strong>Antes de calcular:</strong> poné la calculadora en modo <strong>DEG</strong> (grados). Para pasar de decimal a grados, minutos y segundos usá la tecla <strong>° ′ ″</strong>.
-                    </div>
-                </div>
+    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+        <h3 class="text-lg font-bold text-slate-900 border-l-4 border-blue-600 pl-3">Propiedades de todo triángulo</h3>
+        <ul class="text-sm text-slate-700 space-y-1.5 list-disc pl-5">
+            <li><strong>Suma de ángulos interiores:</strong> \(\alpha + \beta + \gamma = 180^\circ\).</li>
+            <li><strong>Lado y ángulo opuesto:</strong> al mayor ángulo se opone el mayor lado, al menor ángulo el menor lado, y a ángulos iguales, lados iguales.</li>
+            <li><strong>Pitágoras</strong> (solo triángulos rectángulos): \(\text{opuesto}^2 + \text{adyacente}^2 = H^2\). La hipotenusa H es el lado opuesto al ángulo recto.</li>
+        </ul>
+        <div class="bg-amber-50 border border-amber-200 rounded p-3 text-xs text-amber-900">
+            <strong>Antes de calcular:</strong> poné la calculadora en modo <strong>DEG</strong> (grados). Para pasar de decimal a grados, minutos y segundos usá la tecla <strong>° ′ ″</strong>.
+        </div>
+    </div>
 
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
-                    <h3 class="text-lg font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">Las seis razones trigonométricas</h3>
-                    <p class="text-sm text-slate-600">En un triángulo rectángulo, con A = cateto opuesto a α, B = cateto adyacente a α y H = hipotenusa:</p>
-                    <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-center border border-slate-200">
-                        <thead class="bg-slate-100 text-slate-700 text-xs">
-                            <tr><th class="p-2">Razón</th><th class="p-2">Definición</th><th class="p-2">Inversa</th><th class="p-2">Definición</th></tr>
-                        </thead>
-                        <tbody class="text-slate-800">
-                            <tr class="border-t"><td class="p-2">\(\operatorname{sen}\alpha\)</td><td>\(\dfrac{A}{H}\)</td><td>\(\operatorname{cosec}\alpha\)</td><td>\(\dfrac{H}{A}\)</td></tr>
-                            <tr class="border-t"><td class="p-2">\(\cos\alpha\)</td><td>\(\dfrac{B}{H}\)</td><td>\(\sec\alpha\)</td><td>\(\dfrac{H}{B}\)</td></tr>
-                            <tr class="border-t"><td class="p-2">\(\tan\alpha\)</td><td>\(\dfrac{A}{B}\)</td><td>\(\operatorname{cotan}\alpha\)</td><td>\(\dfrac{B}{A}\)</td></tr>
-                        </tbody>
-                    </table>
-                    </div>
-                    <p class="text-xs text-slate-600">Para hallar un ángulo a partir de su razón se usan las funciones inversas: \(\alpha = \operatorname{arcsen}(\cdot)\), \(\arccos(\cdot)\) o \(\arctan(\cdot)\).</p>
-                </div>
+    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+        <h3 class="text-lg font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">Las seis razones trigonométricas</h3>
+        
+        <!-- Leyenda con colores para identificar cada componente -->
+        <p class="text-sm text-slate-700 leading-relaxed">
+            En un triángulo rectángulo respecto al ángulo \(\alpha\):
+            <span class="inline-flex items-center gap-1 font-semibold text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
+                Cateto opuesto
+            </span>
+            <span class="inline-flex items-center gap-1 font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                Cateto adyacente
+            </span>
+            <span class="inline-flex items-center gap-1 font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                Hipotenusa (H)
+            </span>
+        </p>
+
+        <div class="overflow-x-auto">
+        <table class="w-full text-sm text-center border border-slate-200">
+            <thead class="bg-slate-100 text-slate-700 text-xs">
+                <tr><th class="p-2">Razón</th><th class="p-2">Definición</th><th class="p-2">Inversa</th><th class="p-2">Definición</th></tr>
+            </thead>
+            <tbody class="text-slate-800">
+                <tr class="border-t">
+                    <td class="p-2 font-medium">\(\operatorname{sen}\alpha\)</td>
+                    <td class="p-2">\(\dfrac{\text{opuesto}}{H}\)</td>
+                    <td class="p-2 font-medium">\(\operatorname{cosec}\alpha\)</td>
+                    <td class="p-2">\(\dfrac{H}{\text{opuesto}}\)</td>
+                </tr>
+                <tr class="border-t">
+                    <td class="p-2 font-medium">\(\cos\alpha\)</td>
+                    <td class="p-2">\(\dfrac{\text{adyacente}}{H}\)</td>
+                    <td class="p-2 font-medium">\(\sec\alpha\)</td>
+                    <td class="p-2">\(\dfrac{H}{\text{adyacente}}\)</td>
+                </tr>
+                <tr class="border-t">
+                    <td class="p-2 font-medium">\(\tan\alpha\)</td>
+                    <td class="p-2">\(\dfrac{\text{opuesto}}{\text{adyacente}}\)</td>
+                    <td class="p-2 font-medium">\(\operatorname{cotan}\alpha\)</td>
+                    <td class="p-2">\(\dfrac{\text{adyacente}}{\text{opuesto}}\)</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <p class="text-xs text-slate-600">Para hallar un ángulo a partir de su razón se usan las funciones inversas: \(\alpha = \operatorname{arcsen}(\cdot)\), \(\arccos(\cdot)\) o \(\arctan(\cdot)\).</p>
+    </div>
+</div>
 
                 <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
                     <h3 class="text-lg font-bold text-slate-900 border-l-4 border-emerald-600 pl-3">Valores de ángulos notables</h3>
