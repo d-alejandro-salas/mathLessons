@@ -1,3 +1,4 @@
+// components/About.jsx
 import Section from './Section';
 import { GITHUB, LINKEDIN, asset } from '@/lib/site';
 

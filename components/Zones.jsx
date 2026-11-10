@@ -1,3 +1,4 @@
+// components/Zones.jsx
 import Section from './Section';
 import { ZONES } from '@/lib/data';
 

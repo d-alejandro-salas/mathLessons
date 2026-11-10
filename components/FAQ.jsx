@@ -1,3 +1,4 @@
+// components/FAQ.jsx
 import Section from './Section';
 import { FAQ as ITEMS } from '@/lib/data';
 

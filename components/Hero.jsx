@@ -1,3 +1,4 @@
+// components/Hero.jsx
 import { WA_DEFAULT_TEXT, whatsappUrl } from '@/lib/site';
 
 const symbol = 'pointer-events-none absolute font-serif leading-none font-bold text-white/[0.07] select-none';

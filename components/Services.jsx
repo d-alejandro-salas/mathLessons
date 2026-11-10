@@ -1,3 +1,4 @@
+// components/Services.jsx
 import Section from './Section';
 import { SERVICES } from '@/lib/data';
 

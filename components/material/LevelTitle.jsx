@@ -1,3 +1,4 @@
+// components/material/LevelTitle.jsx
 const BADGE = { blue: 'bg-blue-600', indigo: 'bg-indigo-600', emerald: 'bg-emerald-600', amber: 'bg-amber-600', rose: 'bg-rose-600', slate: 'bg-slate-800' };
 const BORDER = { blue: 'border-blue-600', indigo: 'border-indigo-600', emerald: 'border-emerald-600', amber: 'border-amber-600', rose: 'border-rose-600' };
 

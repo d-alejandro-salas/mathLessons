@@ -1,3 +1,4 @@
+// components/Pricing.jsx
 'use client';
 
 import { useState } from 'react';

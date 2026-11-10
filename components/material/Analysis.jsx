@@ -1,3 +1,4 @@
+// components/material/Analysis.jsx
 import ExerciseChart from './ExerciseChart';
 
 /** Línea "Etiqueta: valor" del análisis (valor admite LaTeX). */

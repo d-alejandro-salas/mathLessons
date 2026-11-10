@@ -1,3 +1,4 @@
+// components/material/MaterialFooter.jsx
 export default function MaterialFooter({
   whatsappHref,
   label = 'Escribime por WhatsApp',

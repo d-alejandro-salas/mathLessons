@@ -1,3 +1,4 @@
+// components/material/TrigTheory.jsx
 import SectionHeading from './SectionHeading';
 
 const tex = String.raw;
@@ -27,26 +28,6 @@ export default function TrigTheory() {
             <strong>Antes de calcular:</strong> poné la calculadora en modo <strong>DEG</strong> (grados). Para pasar de decimal a grados, minutos y segundos usá la tecla <strong>° ′ ″</strong>.
           </div>
         </div>
-
-        <div className={card}>
-          <h3 className={`${h3} border-emerald-600`}>Valores de ángulos notables</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full border border-slate-200 text-center text-sm">
-              <thead className="bg-slate-100 text-xs text-slate-700">
-                <tr>{['Ángulo', 'sen', 'cos', 'tan'].map((c) => <th key={c} className="p-2">{c}</th>)}</tr>
-              </thead>
-              <tbody className="text-slate-800">
-                {NOTABLES.map(([ang, ...vals]) => (
-                  <tr key={ang} className="border-t">
-                    <td className="p-2">{ang}</td>
-                    {vals.map((v, i) => <td key={i}>{v}</td>)}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
         <div className={card}>
           <h3 className={`${h3} border-rose-600`}>Triángulos oblicuángulos</h3>
           <div className="space-y-2 rounded bg-slate-50 p-3 text-center text-sm text-indigo-800">

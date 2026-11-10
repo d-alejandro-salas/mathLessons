@@ -1,3 +1,4 @@
+// components/material/TheorySection.jsx
 import SectionHeading from './SectionHeading';
 
 const tex = String.raw;

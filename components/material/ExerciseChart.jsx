@@ -1,3 +1,4 @@
+// components/material/ExerciseChart.jsx
 'use client';
 
 import { CHARTS } from '@/lib/material/charts';

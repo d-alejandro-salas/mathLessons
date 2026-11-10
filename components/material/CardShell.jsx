@@ -1,3 +1,4 @@
+// components/material/CardShell.jsx
 'use client';
 
 import { useProgress } from './ProgressProvider';
@@ -9,7 +10,8 @@ export function CardShell({ id, children }) {
   return (
     <li
       id={`card_${id}`}
-      className={`flex max-w-[32rem] min-w-0 flex-[1_1_18rem] scroll-mt-8 flex-col rounded-xl border p-5 shadow-sm transition duration-200 print:break-inside-avoid print:shadow-none ${
+      // Cambiamos flex-[1_1_18rem] a flex-[1_1_22rem] para forzar menos tarjetas por fila
+      className={`flex max-w-[32rem] min-w-0 flex-[1_1_22rem] scroll-mt-8 flex-col rounded-xl border p-5 shadow-sm transition duration-200 print:break-inside-avoid print:shadow-none ${
         isDone(id) ? 'border-emerald-500 bg-green-50' : 'border-slate-200 bg-white'
       }`}
     >

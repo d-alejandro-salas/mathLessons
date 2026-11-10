@@ -1,3 +1,4 @@
+// components/material/TrigAside.jsx
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -5,9 +6,21 @@ import ExpandableCard from './ExpandableCard';
 import { useProgress } from './ProgressProvider';
 
 const tex = String.raw;
-const COLORS = { opuesto: '#e11d48', adyacente: '#4f46e5', H: '#059669' };
-const part = (k) => tex`\color{${COLORS[k]}}{\text{${k}}}`;
-const frac = (a, b) => tex`\(\dfrac{${part(a)}}{${part(b)}}\)`;
+
+// Mapeo de colores para Tailwind (reemplaza los hexadecimales que rompían MathJax)
+const TColor = { 
+  opuesto: 'text-rose-600', 
+  adyacente: 'text-indigo-600', 
+  H: 'text-emerald-600' 
+};
+
+// Componente React para armar fracciones sin depender de MathJax para los colores
+const Frac = ({ a, b }) => (
+  <span className="inline-flex flex-col items-center justify-center align-middle font-medium leading-none">
+    <span className={`border-b border-slate-300 px-1 pb-[3px] ${TColor[a]}`}>{a}</span>
+    <span className={`px-1 pt-[3px] ${TColor[b]}`}>{b}</span>
+  </span>
+);
 
 // [razón, num, den, inversa]
 const RAZONES = [
@@ -85,9 +98,9 @@ export default function TrigAside() {
                 {RAZONES.map(([r, a, b, inv]) => (
                   <tr key={a + b} className="border-t">
                     <td className="p-1.5 font-medium">{r}</td>
-                    <td className="p-1.5">{frac(a, b)}</td>
+                    <td className="p-1.5"><Frac a={a} b={b} /></td>
                     <td className="p-1.5 font-medium">{inv}</td>
-                    <td className="p-1.5">{frac(b, a)}</td>
+                    <td className="p-1.5"><Frac a={b} b={a} /></td>
                   </tr>
                 ))}
               </tbody>

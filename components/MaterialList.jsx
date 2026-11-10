@@ -1,3 +1,4 @@
+// components/MaterialList.jsx
 import Link from 'next/link';
 import Section from './Section';
 import { MATERIAL } from '@/lib/data';
@@ -15,14 +16,15 @@ export default function MaterialList() {
     >
       <div className="grid-c3">
         {MATERIAL.map((m) => (
-          <article key={m.url} className="card">
+          <article key={m.url} className="card flex flex-col h-full">
             <span className="kicker">{m.nivel}</span>
             <h3>{m.titulo}</h3>
             <p>{m.descripcion}</p>
             {m.descargable ? (
               <a className="btn btn-wa mt-4" href={asset(m.url)} download>Descargar {m.tipo}</a>
-            ) : (
-              <Link className="btn btn-wa mt-4" href={m.url}>Ver {m.tipo}</Link>
+            ) : (<Link className="btn btn-wa mt-auto self-center" href={m.url}>
+  Ver {m.tipo}
+</Link>
             )}
           </article>
         ))}

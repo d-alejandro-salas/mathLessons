@@ -1,3 +1,4 @@
+// app/material/trigonometria/page.jsx
 import { buildMetadata } from '@/lib/seo';
 import { CANONICAL, abs, whatsappUrl } from '@/lib/site';
 import { EXTRA_INTRO, EXTRA_LEVELS, LEVELS, TOTAL_EXERCISES } from '@/lib/material/trigonometria-data';

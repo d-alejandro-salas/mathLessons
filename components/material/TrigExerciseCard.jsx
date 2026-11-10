@@ -1,3 +1,4 @@
+// components/material/TrigExerciseCard.jsx
 import { EXERCISES } from '@/lib/material/trigonometria-data';
 import { CardShell, ExerciseCheck } from './CardShell';
 

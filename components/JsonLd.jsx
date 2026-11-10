@@ -1,3 +1,4 @@
+// components/JsonLd.jsx
 // Inyecta datos estructurados. Reutilizable en la landing y en /material.
 export default function JsonLd({ data }) {
   return (

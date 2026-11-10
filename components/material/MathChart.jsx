@@ -1,3 +1,4 @@
+// components/material/MathChart.jsx
 'use client';
 
 import { useEffect, useRef } from 'react';

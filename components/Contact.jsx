@@ -1,3 +1,4 @@
+// components/Contact.jsx
 import Section from './Section';
 import { EMAIL, PHONE_LABEL, WA_DEFAULT_TEXT, whatsappUrl } from '@/lib/site';
 

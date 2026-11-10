@@ -1,3 +1,4 @@
+// components/material/ConsignaAside.jsx
 'use client';
 
 import { useState } from 'react';

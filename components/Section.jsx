@@ -1,3 +1,4 @@
+// components/Section.jsx
 // Sección estándar: padding, fondo alterno, contenedor y cabecera (kicker + h2 + lead).
 export default function Section({ id, alt = false, kicker, title, lead, children }) {
   return (

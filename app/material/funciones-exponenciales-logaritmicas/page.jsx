@@ -1,3 +1,4 @@
+// app/material/funciones-exponenciales-logaritmicas/page.jsx
 import { buildMetadata } from '@/lib/seo';
 import { CANONICAL, abs, whatsappUrl } from '@/lib/site';
 import JsonLd from '@/components/JsonLd';

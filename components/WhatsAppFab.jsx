@@ -1,3 +1,4 @@
+// components/WhatsAppFab.jsx
 import { whatsappUrl } from '@/lib/site';
 
 export default function WhatsAppFab() {

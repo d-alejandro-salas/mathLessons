@@ -1,3 +1,4 @@
+// components/material/MathJaxScripts.jsx
 'use client';
 
 import Script from 'next/script';

@@ -1,3 +1,4 @@
+// components/material/SectionHeading.jsx
 const BADGE = {
   blue: 'bg-blue-600', indigo: 'bg-indigo-600', emerald: 'bg-emerald-600', amber: 'bg-amber-600', rose: 'bg-rose-600', slate: 'bg-slate-800',
 };

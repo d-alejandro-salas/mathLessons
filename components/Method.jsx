@@ -1,3 +1,4 @@
+// components/Method.jsx
 import Section from './Section';
 import { STEPS } from '@/lib/data';
 

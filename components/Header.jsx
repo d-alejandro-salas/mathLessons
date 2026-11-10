@@ -1,3 +1,4 @@
+// components/Header.jsx
 import Link from 'next/link';
 import { NAV_LINKS } from '@/lib/site';
 
