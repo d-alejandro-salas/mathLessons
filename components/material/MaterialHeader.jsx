@@ -7,7 +7,11 @@ export default function MaterialHeader({ eyebrow, title, nav, sticky = true, eye
     <header className={`z-40 border-b-4 border-blue-600 bg-academic-900 text-white shadow-lg ${sticky ? 'md:sticky md:top-0' : ''}`}>
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <Link href="/" className="mb-1 block text-xs text-blue-300 hover:underline">← Clases de Matemática en Palermo</Link>
+          <div className="mb-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-blue-300 print:hidden">
+            <Link href="/" className="hover:underline">← Clases de Matemática en Palermo</Link>
+            {/* Vuelve directo a la sección de material, no al inicio de la home */}
+            <Link href="/#material" className="hover:underline">Ver todo el material</Link>
+          </div>
           <span className={`text-xs font-semibold text-blue-400 ${eyebrowClass}`}>{eyebrow}</span>
           <h1 className="font-serif text-2xl font-bold tracking-normal text-slate-100 md:text-3xl">{title}</h1>
         </div>

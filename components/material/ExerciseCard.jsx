@@ -1,12 +1,12 @@
 // components/material/ExerciseCard.jsx
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { useState } from 'react';
 import { useProgress } from './ProgressProvider';
+import { OpenedContext, useCardOpened } from './CardOpened';
 
-// Los gráficos se construyen recién cuando el <details> se abre por primera vez.
-const OpenedContext = createContext(true);
-export const useCardOpened = () => useContext(OpenedContext);
+// Se re-exporta para que ExerciseChart siga importándolo desde aquí.
+export { useCardOpened };
 
 const TONES = {
   blue:    { num: 'bg-blue-600',    tag: 'bg-blue-50 text-blue-600',       link: 'text-blue-600',    hover: 'hover:text-blue-600' },
