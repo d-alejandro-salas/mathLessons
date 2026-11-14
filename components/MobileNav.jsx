@@ -2,7 +2,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 
 /** Menú desplegable para pantallas < 1024px (donde el menú horizontal del Header está oculto). */
 export default function MobileNav({ links }) {
@@ -39,13 +38,13 @@ export default function MobileNav({ links }) {
           <ul className="wrap m-0 grid list-none gap-1 py-3">
             {links.map(({ href, label }) => (
               <li key={href}>
-                <Link
-                  href={href}
+                <a
+                  href={href.replace(/^\//, '')}
                   onClick={() => setOpen(false)}
                   className="block rounded-lg px-3 py-3 font-semibold text-txt no-underline hover:bg-indigo-50 hover:text-brand"
                 >
                   {label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
