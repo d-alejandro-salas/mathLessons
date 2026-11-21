@@ -2,6 +2,7 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { PROGRESS_EVENT } from '@/lib/material/progress-code';
 
 const ProgressContext = createContext(null);
 
@@ -14,14 +15,21 @@ export function ProgressProvider({ total, prefix = 'math_exercise_', children })
 
   // Lectura al montar: localStorage no existe en el servidor, por eso va en useEffect
   // (el primer render coincide con el HTML estático y no hay error de hidratación).
+  // También se relee cuando se importa un código de progreso (evento de progress-code.js).
   useEffect(() => {
-    const saved = {};
-    try {
-      for (let i = 1; i <= total; i++) {
-        if (localStorage.getItem(`${prefix}ex${i}`) === 'true') saved[`ex${i}`] = true;
-      }
-    } catch {}
-    setDone(saved);
+    const load = () => {
+      const saved = {};
+      try {
+        for (let i = 1; i <= total; i++) {
+          if (localStorage.getItem(`${prefix}ex${i}`) === 'true') saved[`ex${i}`] = true;
+        }
+      } catch {}
+      setDone(saved);
+    };
+
+    load();
+    window.addEventListener(PROGRESS_EVENT, load);
+    return () => window.removeEventListener(PROGRESS_EVENT, load);
   }, [total, prefix]);
 
   const toggle = useCallback((id) => {

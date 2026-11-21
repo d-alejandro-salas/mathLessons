@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { FaChevronUp, FaEnvelope, FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { SiNextdotjs, SiReact, SiTailwindcss } from 'react-icons/si';
+import ProgressCodeButton from '@/components/material/ProgressCodeButton';
 import { EMAIL, GITHUB, LINKEDIN, MATERIAL_LINKS, PHONE_LABEL, WA_DEFAULT_TEXT, whatsappUrl } from '@/lib/site';
 
 const SOCIALS = [
@@ -61,6 +62,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            <div className="mt-5">
+              <ProgressCodeButton variant="footer" />
+            </div>
           </div>
           <div>
             <h3 className={title}>Zona y modalidad</h3>

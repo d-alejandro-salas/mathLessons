@@ -1,6 +1,7 @@
 // components/material/MaterialHeader.jsx
 import Link from 'next/link';
 import { HeaderProgress } from './ProgressProvider';
+import ProgressCodeButton from './ProgressCodeButton';
 
 export default function MaterialHeader({ eyebrow, title, nav, sticky = true, eyebrowClass = 'tracking-widest uppercase' }) {
   return (
@@ -17,6 +18,7 @@ export default function MaterialHeader({ eyebrow, title, nav, sticky = true, eye
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <HeaderProgress />
+          <ProgressCodeButton variant="header" />
           <nav className="flex flex-wrap gap-1.5 text-xs font-medium print:hidden" aria-label="Secciones">
             {nav.map(({ href, label }) => (
               <a key={href} href={href} className="rounded bg-slate-800 px-2.5 py-1 text-slate-200 transition hover:bg-blue-600">
